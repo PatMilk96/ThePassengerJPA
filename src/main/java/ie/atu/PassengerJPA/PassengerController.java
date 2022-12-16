@@ -24,10 +24,6 @@ public class PassengerController {
         return myService.getPassengers();
     }
 
-    /*@GetMapping("/{id}")
-    public Passenger getPassenger(@PathVariable String id){
-        return myService.getPassenger(id);
-    }*/
 
     @PostMapping("")
     public void savePassenger(@RequestBody Passenger passenger){
