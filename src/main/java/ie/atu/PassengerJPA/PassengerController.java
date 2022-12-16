@@ -24,23 +24,28 @@ public class PassengerController {
         return myService.getPassengers();
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public Passenger getPassenger(@PathVariable String id){
         return myService.getPassenger(id);
-    }
+    }*/
 
     @PostMapping("")
     public void savePassenger(@RequestBody Passenger passenger){
         myService.savePassenger(passenger);
     }
-/*
+
     @GetMapping("/name/{name}")
     public Passenger getPassengerName(@PathVariable("name") String name){
         return myService.findPassengerByName(name);
     }
-*/
+
     @DeleteMapping("/delete/{count}")
     public void deletePassenger(@PathVariable("count") Long count){
         myService.deletePassenger(count);
+    }
+
+    @GetMapping("/age")
+    public List<Passenger> getPassengerByAge(@RequestParam(name = "age_start") int age1, @RequestParam(name = "age_end") int age2){
+        return myService.findPassengerByAgeRange(age1, age2);
     }
 }
