@@ -7,15 +7,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
 @Table
-
 public class Passenger {
-    private static String title;
+    private String title;
     private String name;
     private String id;
     private String phone;
@@ -25,15 +26,15 @@ public class Passenger {
     private long count;
 
     public Passenger(String title, String name, String id, String phone, int age) {
-        setTitle(title);
-        setName(name);
-        setId(id);
-        setPhone(phone);
-        setAge(age);
+        this.title = title;
+        this.name = name;
+        this.id = id;
+        this.phone = phone;
+        this.age=age;
     }
 
     public String getTitle() {
-        if(title == "Mr" || title == "Mrs" || title == "Ms"){
+        if(Objects.equals(title, "Mr") || Objects.equals(title, "Mrs") || Objects.equals(title, "Ms")){
             return title;
         }
         else{
