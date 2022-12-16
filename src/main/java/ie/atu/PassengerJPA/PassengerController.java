@@ -2,13 +2,11 @@ package ie.atu.PassengerJPA;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@SpringBootApplication
+@RestController
 @RequestMapping(path="api/passenger")
 public class PassengerController {
     PassengerService myService;
@@ -26,8 +24,23 @@ public class PassengerController {
         return myService.getPassengers();
     }
 
-    @GetMapping("/{passengerID}")
-    public Passenger getPassenger(@PathVariable String passengerID){
-        return myService.getPassenger(passengerID);
+    @GetMapping("/{id}")
+    public Passenger getPassenger(@PathVariable String id){
+        return myService.getPassenger(id);
+    }
+
+    @PostMapping("")
+    public void savePassenger(@RequestBody Passenger passenger){
+        myService.savePassenger(passenger);
+    }
+/*
+    @GetMapping("/name/{name}")
+    public Passenger getPassengerName(@PathVariable("name") String name){
+        return myService.findPassengerByName(name);
+    }
+*/
+    @DeleteMapping("/delete/{count}")
+    public void deletePassenger(@PathVariable("count") Long count){
+        myService.deletePassenger(count);
     }
 }

@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-
+@SpringBootApplication
 public class PassengerJpaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PassengerJpaApplication.class, args);
