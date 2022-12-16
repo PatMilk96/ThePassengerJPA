@@ -15,10 +15,6 @@ public class PassengerService {
         return passengerRepo.findAll();
     }
 
-    /*public Passenger getPassenger(String id) {
-        return passengerRepo.getPassenger(id);
-    }*/
-
     public void savePassenger(Passenger passenger){
         passengerRepo.save(passenger);
     }
