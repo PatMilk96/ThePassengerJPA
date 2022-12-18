@@ -1,0 +1,16 @@
+version: '2.0'
+services:
+  server:
+    container_name: passenger_application
+    image: patmilk/passenger_jpa
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - host.docker.internal
+  host.docker.internal:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=atu

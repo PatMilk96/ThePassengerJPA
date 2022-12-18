@@ -1,10 +1,10 @@
 package ie.atu.PassengerJPA;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-
 public interface PassengerRepo extends JpaRepository<Passenger, Long> {
    public Passenger findPassengerByName(String name);
 
